@@ -1,0 +1,321 @@
+
+/* Declaración de codificación de caracteres */
+@charset "utf-8";
+/* Inicio del Documento CSS */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+  :root {
+    --dark: black;
+    --white: white;
+    --light-grey: #efefef;
+    --verde: #86ca01;
+    --gold: #ecd5a7;
+    --grey: #e7e5e5;   
+  }
+
+  body {
+    font-family: 'Roboto Condensed', sans-serif , 'Open Sans';
+    font-size: 1rem;
+    font-weight: 300;
+    letter-spacing: 0.3rem;
+    background-color: var(--dark);
+    white-space: normal;
+  }
+
+  /* Modificación del comportamiento de los encabezados */
+
+  h1, h2, h4, h6{
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500 !important;
+    line-height: 1.5 !important;
+    white-space: normal;
+  }
+
+  h5 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 100;
+    line-height: 1.5;
+    margin-right: 1rem;
+    white-space: normal;
+  }
+
+  h2 {
+    font-size: 1.8rem; ;
+  }
+
+  h3 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500 !important;
+    line-height: 1.5 !important;
+    white-space: normal;
+    margin-top: -1rem;
+  }
+
+  
+  /* Modificación del comportamiento de los parrafos, secciones y articulos */
+
+  p {
+    font-weight: 400 !important;
+  }
+
+  section {
+    padding: 6rem 0;
+  }
+  
+  article {
+    padding: 0, 0;
+    margin-bottom: 2rem;
+    margin-top: 0;
+  }
+
+
+  /* Modificación de comportamiento de los enlaces */
+
+  a {
+    color: var(--verde);
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: var(--verde);
+    text-decoration: none;
+  }
+
+  .leer-mas {
+    text-align : center; 
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600 !important;
+    line-height: 1.5 !important; 
+    color: var(--verde);
+    text-decoration: underline;
+  }
+
+  .secciones {
+    text-align : center; 
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600 !important;
+    line-height: 1.5 !important; 
+    color: var(--verde);
+  }
+
+
+  /* Modificación de comportamiento del menu */
+
+  .navbar-brand {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600 !important;
+    line-height: 1.5 !important; 
+    color: var(--verde);
+  }
+
+  .navbar {
+    min-height: 5rem;
+  }
+
+  .navbar-toggler {
+    color:var(--light-grey) !important;
+  }
+
+  .nav-link {
+    color: var(--white);
+    text-transform: uppercase;
+    font-size: .9rem;
+    font-weight: 600;
+  }
+
+  .resaltado {
+    border: var(--verde) 2px solid !important;
+    width: 200px;
+    text-align: center;
+  }
+
+  .resaltado2 {
+    border: var(--verde) 2px solid !important;
+    width: 200px;
+    text-align: center;
+  }
+
+
+  /* Modificación de comportamiento del carrusel */
+
+  @media (max-width: 575.98px) {
+    #slider h3 {
+    font-size: 1.2rem;
+   }
+ }
+
+  #slider {
+    padding: 0;
+  }
+
+  .altocarrusel {
+    margin-top: -100px;
+  }
+
+  
+  /* Modificación de comportamiento de contenedores */
+
+  .row {
+    text-align : justify; 
+  }
+
+  .fondo-dark {
+    background-color:var(--dark) !important;
+  }
+  
+  .fondo-light {
+    background-color:var(--white) !important;
+  }
+  
+  .fondo-light-grey {
+    background-color:var(--light-grey) !important;
+    
+  }
+
+  .fondos-light-grey {
+    background-color:var(--light-grey) !important;
+    margin-top: -90px;
+  }
+
+  .fondo-grey {
+    background-color:var(--grey) !important;
+  }
+
+  .mt-6 {
+    margin-top: 0rem;
+   }
+ 
+   .badge {
+    font-weight: 500;
+    padding: .5rem 1.5rem;
+    line-height: 1.5;
+   }
+
+   .blog-info {
+    color:var(--white) !important;
+    bottom: 1rem;
+    left: 1.5rem;
+   }
+  
+
+  /* Modificación de comportamiento de los textos */
+
+  .text-light {
+    color: var(--verde) !important;
+    margin-top: -40px;
+  }
+  
+  .text-gold {
+    color: var(--gold) !important;
+    margin-top: 5px;
+  }
+
+  .text-white {
+    color: white;
+    margin-top: 5px;
+  }
+  
+  .text-muted {
+    font-weight: 600;
+    text-align : justify; 
+    word-spacing: -3px;
+  }
+  
+  .text-noticias {
+    font-weight: 800;
+    text-align : justify; 
+    word-spacing: -3px;
+    font-size: 1px;
+  }
+
+  .privacidad {
+    color: var(--dark) !important;
+  }
+
+  .tituloubicacion{
+    color: #86ca01;
+    margin-top: -80px;
+    margin-bottom: 90px;
+  }
+
+.subtituloubicacion{
+    color: #efefef;
+    margin-top: -80px;
+  }
+
+.logo{
+    margin-top: -20px;
+  }
+
+
+  /* Modificación de comportamiento de los botones */
+
+  .btn {
+   padding: .5rem 1.8rem;
+   border-radius: .2rem;
+  }
+
+  .btn-secondary {
+   background-color:var(--dark) !important;
+   float:none;
+	 text-align:center;
+  }
+
+  .btn-primary {
+   background-color:var(--white) !important;
+   color:var(--dark) !important;
+   border-color:var(--dark) !important;
+  }
+ 
+  .btn-primary:hover {
+   background-color:var(--white) !important;
+   color:var(--dark) !important;
+   border-color:var(--dark) !important;  
+  }
+
+  .form-control {
+   padding: 0.5rem;
+   font-weight: 300;
+   border: 0;
+  }
+
+  .form-control:focus {
+   outline: none;
+   box-shadow: none;
+   border: 1px solid var(--dark);
+  }
+
+
+  /* Modificación de comportamiento de Noticias*/
+
+  @media only screen and (max-width: 900px) {
+    .ocultar {
+      display: none;
+    }
+  }
+
+  
+
+
+  
+
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description"
+        content="Estudio de Interiorismo en Andalucia y diseño de Interiores en Andalucia, decoradores especializados en Andalucia. Interiorismo Andalucia Impulsate estudio especializado 
+    en decoracion de interiores en Andalucia, si precisa de un decorador en Andalucia para decorar su vivienda, oficina, local, comercios y negocios llamenos." />
+    <meta name="robots" content="NOFOLLOW" />
+    <meta name="Author" content="Lucia Junquera" />
+    <meta name="keywords"
+        content="presupuesto, interiorismo huelva jaen cadiz almeria granada malaga cordoba barcelona madrid valencia zaragoza, decoracion de interiores huelva jaen cadiz almeria granada malaga cordoba, decorador huelva jaen cadiz almeria granada malaga cordoba, 
+    decoradores huelva jaen cadiz almeria granada malaga cordoba, interioristas huelva jaen cadiz almeria granada malaga cordoba, decoracion interiores huelva jaen cadiz almeria granada malaga cordoba, estudio 
+    interiorismo huelva jaen cadiz almeria granada malaga cordoba, diseño de interiores, diseño y decoracion de interiores, ideas decoracion huelva jaen cadiz almeria granada malaga cordoba, estudios de interiorismo 
+    huelva jaen cadiz almeria granada malaga cordoba, instagram, facebook, youtube, twiter, decoracion de restaurantes, decoracion de cocinas, decoracion de baños, decoracion de hoteles, decoracion de hosteleria, decoracion de terrazas, interiorismo y 
+    decoracion, estudio de arquitectura, proyectos de interiorismo andalucia, adaptacion de restaurantes a coronavirus, adaptacion a free covid, decoracion de casas, decoracion de interiores" />
+    <meta name="lang" content="es" />
+    <meta name="revisit-after" content="2 days" />
+    <meta name="category" content="Practica MasterD" />
+    <title>Impulsate. Lideres en diseño e interiorismo de Restaurantes en Andalucia</title>
+
+    <!-- Declaración de fichero de estilos -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+    <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Modak&family=Oswald:wght@500&family=Patrick+Hand&family=Roboto+Condensed:wght@300;400&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/css.css">
+
+    <style>
+        #mapa {
+            height: 600px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!--Div que contiene el menú-->
+    <header>
+        <nav class="navbar navbar-expand-lg fondo-dark verde scrolling-navbar fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="#" id="recargarIndex2">Impúlsate</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <i class="icon ion-md-menu"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item px-3" id="recargarServicios">
+                            <a class="nav-link" href="#">Porfolio</a>
+                        </li>
+                        <li class="nav-item px-3" id="recargarPresupuestos2">
+                            <a class="nav-link" href="#">Presupuesto</a>
+                        </li>
+                        <li class="nav-item px-3" id="#">
+                            <a class="nav-link resaltado" href="#">Donde estamos</a>
+                        </li>
+                        <li class="nav-item px-3" id="recargarContacto2">
+                            <a class="nav-link" href="#">Contacto</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!--Sección que contiene el mapa-->
+    <section>
+        <center>
+            <h1 class="tituloubicacion">Como llegar hasta nosotros</h1>
+        </center>
+        <center>
+            <p class="subtituloubicacion">Si quieres que te indiquemos como llegar desde donde te encuentras hasta
+                nuestra sede, activa tu ubicación y te marcaremos la ruta. </p>
+        </center>
+        <div id="mapa"></div>
+
+        <script>
+            // temporizador en caso de que falle o se niegue el permiso
+            if (navigator.geolocation) {
+                var location_timeout = setTimeout("geolocEpicFail()", 10000);
+
+                navigator.geolocation.getCurrentPosition(function (position) {
+
+                    // si todo va bien quitamos el temporizador
+                    clearTimeout(location_timeout);
+
+                    // Mapa si el usuario activa geolocalización
+                    var latitude = position.coords.latitude;
+                    var longitude = position.coords.longitude;
+
+                    var mymap = L.map("mapa", {
+                        center: [latitude, longitude],
+                        zoom: 12
+                    });
+
+                    L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw", {
+                        maxZoom: 25,
+
+                        id: "mapbox/streets-v11"
+                    }).addTo(mymap);
+
+
+                    L.Routing.control({
+                        waypoints: [
+                            L.latLng(latitude, longitude),
+                            L.latLng(37.163903, -3.597792),
+                        ],
+                        language: "es"
+                    }).addTo(mymap);
+
+                    const markerCliente = L.marker([latitude, longitude]).addTo(mymap)
+
+                    markerCliente.bindPopup("<b>Aquí estas tú</b><br>");
+
+                    const markerDestino = L.marker([37.163903, -3.597792]).addTo(mymap)
+
+                    markerDestino.bindPopup("<b>Aquí estamos</b><br><a href='#' id='recargarContacto5'>Más información</a>").openPopup();
+                },
+
+                    // si se produce un error quitamos el temporizador y ejecutamos la funcion de backup
+                    function (error) {
+
+                        clearTimeout(location_timeout);
+                        geolocEpicFail();
+                    });
+
+                // Mapa si el usuario NO activa geolocalización
+            } else {
+
+            }
+            function geolocEpicFail() {
+                var mymap = L.map("mapa", {
+                    center: [37.163903, -3.597792],
+                    zoom: 17
+                });
+
+                L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw", {
+                    maxZoom: 25,
+                    attribution: "Datos del mapa de &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a>, " + "<a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, " + "Imágenes © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
+                    id: "mapbox/streets-v11"
+                }).addTo(mymap);
+
+                const marker = L.marker([37.163903, -3.597792]).addTo(mymap)
+
+                marker.bindPopup("<b>Aquí estamos</b><br><a href='#' id='recargarContacto6'>Más información</a>").openPopup();
+            }
+
+
+        </script>
+    </section>
+
+    <!--Div que contiene el pie de página-->
+    <footer class="fondo-dark text-light py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <ul class="list-inline mb-0">
+                        <a href="https://www.instagram.com/" target="_blank">
+                            <li class="list-inline-item lead mx-2"><i class="icon ion-logo-instagram"></i></li>
+                        </a>
+                        <a href="https://es-es.facebook.com/" target="_blank">
+                            <li class="list-inline-item lead mx-2"><i class="icon ion-logo-facebook"></i></li>
+                        </a>
+                        <a href="https://www.youtube.com/" target="_blank">
+                            <li class="list-inline-item lead mx-2"><i class="icon ion-logo-youtube"></i></li>
+                        </a>
+                        <a href="https://twitter.com/" target="_blank">
+                            <li class="list-inline-item lead mx-2"><i class="icon ion-logo-twitter"></i></li>
+                        </a>
+                    </ul>
+                </div>
+                <div class="col-md-6 text-sm-right">
+                    <small>By Lucía Junquera for MD</small>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Scripts -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="js/scripts.js"></script>
+
+</body>
+
+</html>
